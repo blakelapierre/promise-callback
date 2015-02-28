@@ -1,0 +1,24 @@
+{
+  "name": "promise-callback",
+  "version": "1.0.0",
+  "description": "Calls a function that takes a standard node callback function and returns a Promise that is rejected on error or resolved with the non-error arguments of the callback.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/blakelapierre/promise-callback"
+  },
+  "keywords": [
+    "es6",
+    "promise",
+    "callback"
+  ],
+  "author": "Blake La Pierre",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/blakelapierre/promise-callback/issues"
+  },
+  "homepage": "https://github.com/blakelapierre/promise-callback"
+}
