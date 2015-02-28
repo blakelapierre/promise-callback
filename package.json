@@ -2,10 +2,7 @@
   "name": "promise-callback",
   "version": "1.0.0",
   "description": "Calls a function that takes a standard node callback function and returns a Promise that is rejected on error or resolved with the non-error arguments of the callback.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": ".dist/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/blakelapierre/promise-callback"
@@ -20,5 +17,23 @@
   "bugs": {
     "url": "https://github.com/blakelapierre/promise-callback/issues"
   },
-  "homepage": "https://github.com/blakelapierre/promise-callback"
+  "homepage": "https://github.com/blakelapierre/promise-callback",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-babel": "^4.0.0",
+    "gulp-cached": "^1.0.2",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-jshint": "^1.9.2",
+    "gulp-load-plugins": "^0.8.1",
+    "gulp-pipe": "^1.0.3",
+    "gulp-print": "^1.1.0",
+    "gulp-sequence": "^0.3.2",
+    "gulp-sourcemaps": "^1.5.0",
+    "gulp-tasks": "0.0.2",
+    "gulp-traceur": "^0.17.0",
+    "gulp-util": "^3.0.4",
+    "traceur": "0.0.85",
+    "traceur-runtime": "0.0.59"
+  }
 }
