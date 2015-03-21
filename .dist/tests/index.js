@@ -6,9 +6,10 @@ var promise = _interopRequire(require("../"));
 
 promise(function (arg, callback) {
   console.log("arg", arg, "callback", callback);
-  callback(undefined, "arg1");
+  callback(undefined, "arg1", "arg2");
 }, "an arg").then(function (value) {
   return console.log("value", value);
 }, function (error) {
   return console.log("error", error);
 });
+//# sourceMappingURL=../tests/index.js.map

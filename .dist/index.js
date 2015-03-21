@@ -11,7 +11,9 @@ module.exports = function promise(fn) {
         rest[_key2 - 1] = arguments[_key2];
       }
 
-      if (error) reject(error);else resolve.apply(undefined, rest);
+      console.log("args", args, "rest", rest[0], "error", error);
+      if (error) reject(error);else resolve(rest.length === 1 ? rest[0] : rest);
     }]));
   });
 };
+//# sourceMappingURL=index.js.map

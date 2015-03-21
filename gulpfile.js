@@ -2,6 +2,7 @@ const gulp = require('gulp'),
       minimist = require('minimist');
 
 const {
+  babel,
   cached,
   clean,
   concat,
@@ -27,9 +28,9 @@ if (typeof result === 'string') console.log(result);
 
 gulp.task('default', ['build']);
 
-gulp.task('build', sequence('clean', 'runtime'));
+gulp.task('build', sequence('clean', 'transpile'));
 
-gulp.task('dev', ['runtime'], () => gulp.watch(paths.scripts, ['runtime']));
+gulp.task('dev', ['transpile'], () => gulp.watch(paths.scripts, ['transpile']));
 
 gulp.task('run', () => run(`node ${paths.dist}/index.js ${args.args || ''}`).exec());
 
@@ -39,18 +40,9 @@ gulp.task('transpile', //['jshint'],
     ,cached('transpile')
     ,print()
     ,sourcemaps.init()
-    // ,to5()
-    ,traceur({modules: 'commonjs', asyncGenerators: true, forOn: true, asyncFunctions: true})
+    ,babel()
+    //,traceur({modules: 'commonjs', asyncGenerators: true, forOn: true, asyncFunctions: true})
     ,sourcemaps.write('.')
-    ,gulp.dest(paths.dist)
-  ])
-  .on('error', function(e) { console.log(e); }));
-
-gulp.task('runtime', ['transpile'],
-  () => pipe([
-    gulp.src([traceur.RUNTIME_PATH])
-    ,print()
-    ,concat('traceur-runtime.js')
     ,gulp.dest(paths.dist)
   ])
   .on('error', function(e) { console.log(e); }));
