@@ -1,7 +1,7 @@
-const gulp = require('gulp');
+const gulp = require('gulp'),
+      minimist = require('minimist');
 
 const {
-  babel,
   cached,
   clean,
   concat,
@@ -9,6 +9,7 @@ const {
   jshint,
   pipe,
   print,
+  run,
   sequence,
   sourcemaps,
   tasks,
@@ -19,24 +20,28 @@ const {
   }
 });
 
+const args = minimist(process.argv.slice(2));
+
 const result = tasks(gulp, require);
 if (typeof result === 'string') console.log(result);
 
 gulp.task('default', ['build']);
 
-gulp.task('build', sequence('clean', 'transpile'));
+gulp.task('build', sequence('clean', 'runtime'));
 
-gulp.task('dev', () => gulp.watch(paths.scripts, ['runtime']));
+gulp.task('dev', ['runtime'], () => gulp.watch(paths.scripts, ['runtime']));
+
+gulp.task('run', () => run(`node ${paths.dist}/index.js ${args.args || ''}`).exec());
 
 gulp.task('transpile', //['jshint'],
   () => pipe([
     gulp.src(paths.scripts)
     ,cached('transpile')
     ,print()
-    // ,sourcemaps.init()
-    ,babel()
-    // ,traceur({modules: 'commonjs', asyncGenerators: true, forOn: true, asyncFunctions: true})
-    // ,sourcemaps.write('.')
+    ,sourcemaps.init()
+    // ,to5()
+    ,traceur({modules: 'commonjs', asyncGenerators: true, forOn: true, asyncFunctions: true})
+    ,sourcemaps.write('.')
     ,gulp.dest(paths.dist)
   ])
   .on('error', function(e) { console.log(e); }));
