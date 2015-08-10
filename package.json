@@ -1,6 +1,6 @@
 {
   "name": "promise-callback",
-  "version": "3.0.2",
+  "version": "3.0.3",
   "description": "Calls a function that takes a standard node callback function and returns a Promise that is rejected on error or resolved with the non-error arguments of the callback.",
   "main": ".dist/index.js",
   "repository": {
