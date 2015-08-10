@@ -32,7 +32,7 @@ import promise from 'promise-callback';
 
 const pfs = promise(fs);
 
-fs.readFile(, 'file_name.json')
+pfs.readFile(, 'file_name.json')
   .then(
     buffer => console.log(buffer.toSTring()))),
     error  => console.log('Error reading file', error.stack));
