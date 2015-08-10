@@ -56,10 +56,10 @@ gulp.task('transpile', ['jshint'],
 
 gulp.task('runtime', ['transpile'],
   () => pipe([
-    gulp.src([traceur.RUNTIME_PATH])
-    ,p('runtime')
-    ,concat('traceur-runtime.js')
-    ,gulp.dest(paths.dist)
+    // gulp.src([traceur.RUNTIME_PATH])
+    // ,p('runtime')
+    // ,concat('traceur-runtime.js')
+    // ,gulp.dest(paths.dist)
   ])
   .on('error', function(e) { console.log(e); }));
 

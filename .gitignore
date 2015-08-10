@@ -1,6 +1,3 @@
 node_modules
-<<<<<<< HEAD
-=======
-.dist
-container/app
->>>>>>> upstream/master
+test.txt
+.dist/traceur-runtime.js
